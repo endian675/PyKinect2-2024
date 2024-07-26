@@ -1,4 +1,6 @@
-# PyKinect2
+# PyKinect2-2024
+
+**An updated and fixed version of the package that fixes incompatibilities with modern Python libraries**
 
 Enables writing Kinect applications, games, and experiences using Python.  Inspired by the original [PyKinect project on CodePlex](http://pytools.codeplex.com/wikipage?title=PyKinect).
 
