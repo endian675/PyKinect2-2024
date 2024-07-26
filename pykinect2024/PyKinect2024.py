@@ -1,6 +1,8 @@
 # -*- coding: mbcs -*-
 typelib_path = 'c:\\Users\\vladkol\\Documents\\PyKinect2\\idl\\Kinect.tlb'
 _lcid = 0 # change this if required
+import sys
+import platform
 import ctypes 
 import comtypes
 from ctypes import *
@@ -20,9 +22,6 @@ WSTRING = c_wchar_p
 
 from _ctypes import COMError
 comtypes.hresult.E_PENDING = 0x8000000A 
-
-import numpy.distutils.system_info as sysinfo
-
 
 class _event(object):
     """class used for adding/removing/invoking a set of listener functions"""
@@ -2216,7 +2215,14 @@ tagSTATSTG._fields_ = [
     ('grfStateBits', c_ulong),
     ('reserved', c_ulong),
 ]
-required_size = 64 + sysinfo.platform_bits / 4
+# Determine the platform bitness
+if sys.maxsize > 2**32:
+    platform_bits = 64
+else:
+    platform_bits = 32
+
+# Calculate the required size
+required_size = 64 + platform_bits / 4
 
 assert sizeof(tagSTATSTG) == required_size, sizeof(tagSTATSTG)
 assert alignment(tagSTATSTG) == 8, alignment(tagSTATSTG)
@@ -2865,8 +2871,6 @@ __all__ = [ 'IKinectSensor', 'IAudioBeamSubFrame',
            'JointType_HipLeft', 'ColorImageFormat_Rgba',
            'IColorCameraSettings', '_DetectionResult',
            'IColorFrameReader', 'ColorImageFormat_Yuy2', '_Activity']
-from comtypes import _check_version; _check_version('')
-
 
 KINECT_SKELETON_COUNT = 6
 
@@ -2912,4 +2916,4 @@ def IsHR(hr, value):
     return ctypes.c_ulong(_hr.value).value == value
 
 
-__name__ = 'PyKinectV2'
+__name__ = 'PyKinect2024'
