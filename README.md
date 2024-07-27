@@ -28,26 +28,12 @@ Full List of Dependencies
 
 ## Installation
 
-The package can be installed through pip using the usual means:
+The package can be installed through pip:
 ```
-pip install pykinect2
+pip install pykinect2024
 ````
 If you are using a virtual environment, be sure to activate it first.
 
 For more information, please see https://pip.pypa.io/en/latest/user_guide.html#installing-packages
 
 
-## Installation (Manual)
-
-To install the package manually, clone this repository to a local folder and include it in the appropriate python environment. If installing in a virtual environment, be sure to install all required dependencies (above).
-
-For example:
-```
-cd c:\projects\myproject\env\
-/Scripts/activate.bat
-
-easy_install -a c:\projects\downloads\PyKinect2
-```
-After installation is complete, you can launch the interactive python shell and `import pykinect2` to ensure everything has been installed properly.
-
-Core helper classes for working with the Kinect sensor are located in PyKinectRuntime.py. For usage examples, please see /examples/PyKinectBodyGame.py.
