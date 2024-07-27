@@ -1,4 +1,4 @@
-# PyKinect2-2024
+# PyKinect2024
 
 **An updated and fixed version of the package that fixes incompatibilities with modern Python libraries**
 
